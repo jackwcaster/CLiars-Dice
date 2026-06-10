@@ -1,2 +1,5 @@
-# CLiars-Dice
-A summer project to learn more about networking and project structure in C++
+# CLiar's-Dice - An Online CLI Game of Liar's Dice
+
+Some of my favorite memories from high school came from playing the game liar's dice in class with my friends. During my senior year especially, we would find ways to play by any means necessary; whether that meant using a dice set brought from someone's car and loudly playing in class to using the random dice generation result of a google search and holding up our fingers to silently hold up counts and denominations, we would always find a way.  
+
+Recently, I played a table top simulator style game that had rules which were so different from how my friends and I traditionally played, that we just didn't find nearly as much enjoyment in the game as we should have which eventually caused us to refund the game. During the refund process, I thought about how making a CLI based version of the game could have a unique aesthetic that I am drawn to while also being a good project to learn more about servers, networking, and project architecture in C++.
