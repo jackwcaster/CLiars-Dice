@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <winsock.h>
+#include <winsock2.h>
 using namespace std;
 
 class Server{
@@ -14,14 +14,6 @@ class Server{
         SOCKET acceptClient();
 };
 
-class Connection{
-    private:
-        SOCKET conScoket;
-    public:
-        Connection(SOCKET conSocket);
-        void sendMessage(string msg);
-        string recieveMessage();
-};
 
 class Players{
     private:
