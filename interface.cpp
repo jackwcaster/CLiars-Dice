@@ -16,6 +16,8 @@ int main() {
     SOCKET client = server.acceptClient(); //make a socket for one client
     Connection connect(client); // create a connection with the client socket?
     connect.sendMessage("test"); //test msg
+    string msg = connect.recieveMessage();
+    cout<<msg<<endl;
 
     WSACleanup();
 }

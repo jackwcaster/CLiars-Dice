@@ -14,5 +14,18 @@ void Connection::sendMessage(string msg){
 string Connection::recieveMessage(){
     char buff [1024];
     int bytes = recv(conSocket, buff, sizeof(buff), 0);
-    return string(buff, bytes);
+
+if (bytes == SOCKET_ERROR)
+{
+    cout << "recv failed: " << WSAGetLastError() << endl;
+    return "";
+}
+
+if (bytes == 0)
+{
+    cout << "client disconnected\n";
+    return "";
+}
+
+return string(buff, bytes);
 }
