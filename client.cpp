@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 
+using namespace std;
+
 #pragma comment(lib, "Ws2_32.lib")
 
 int main()
@@ -20,8 +22,19 @@ int main()
 
     connect(sock, (sockaddr*)&serverAddr, sizeof(serverAddr));
 
-    std::string msg = "Hello server!";
-    send(sock, msg.c_str(), msg.size(), 0);
+    // std::string msg = "Hello server!";
+    // send(sock, msg.c_str(), msg.size(), 0);
+
+    while(true)
+{
+    string msg;
+    getline(cin, msg);
+
+    send(sock,
+         msg.c_str(),
+         msg.size(),
+         0);
+}
 
     closesocket(sock);
     WSACleanup();
