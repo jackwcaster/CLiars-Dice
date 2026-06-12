@@ -7,9 +7,9 @@
 using namespace std;
 
 class Player{
-    private:
         vector<int> dice;
         string name;
-    public:
-        
+        void setName(string& name);
+        void rollDice();
+        int removeDice();
 };

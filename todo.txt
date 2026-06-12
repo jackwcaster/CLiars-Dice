@@ -1,0 +1,18 @@
+1. Add constructors for player and game class
+1.5 Get server to clinet messages working
+2. Add main loop to get multiple players connected at once
+3. Add functions for input parsing
+4. Funtioning game demo
+5. Disconnect logic
+6. Art
+
+   __________
+  /  0  0   / 
+ /         /
+/_________/
+  __________
+ /        / |
+/________/  | try with 4 vert
+|        |  |
+|        | /
+|________|/

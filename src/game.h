@@ -7,7 +7,12 @@
 using namespace std;
 
 class Game{
-    private:
         vector<Player> players;
         int turn;
+
+        Game();
+        Game(vector<Player>& players);
+        void addPlayer(Player& added);
+        void broadcast(string& message);
+        bool startGame();
 };
