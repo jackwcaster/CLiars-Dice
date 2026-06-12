@@ -17,7 +17,6 @@ int main()
     sockaddr_in serverAddr;
     serverAddr.sin_family = AF_INET;
     serverAddr.sin_port = htons(6767);
-
     serverAddr.sin_addr.s_addr = inet_addr("127.0.0.1");
 
     connect(sock, (sockaddr*)&serverAddr, sizeof(serverAddr));
@@ -25,16 +24,11 @@ int main()
     // std::string msg = "Hello server!";
     // send(sock, msg.c_str(), msg.size(), 0);
 
-    while(true)
-{
+    while(true){
     string msg;
     getline(cin, msg);
-
-    send(sock,
-         msg.c_str(),
-         msg.size(),
-         0);
-}
+    send(sock, msg.c_str(), msg.size(), 0);
+    }
 
     closesocket(sock);
     WSACleanup();
