@@ -28,6 +28,7 @@ int main()
     string msg;
     getline(cin, msg);
     send(sock, msg.c_str(), msg.size(), 0);
+    // recv(sock, nullptr, 0, 0);
     }
 
     closesocket(sock);
