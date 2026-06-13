@@ -49,25 +49,21 @@ void Server::acceptClinets(){
     }
 }
 
-void Server::handleClient(Connection* client){
-    while(true)
-    {
+void Server::handleClient(Connection* client){ //this will parse in the future
+    while(true){
         string msg = client->recieveMessage();
 
-        if(msg.empty())
-        {
-            break;
-        }
+        if(msg.empty()) break;
 
         cout <<"Client: "<< msg << endl;
 
-        broadcast("Server Recieved: " + msg);
+        broadcast(msg);
     }
 }
 
 void Server::broadcast(string msg){
     for(Connection* client : clients)
     {
-        client->sendMessage(msg);
+        client->sendMessage("Server Recieved" + msg);
     }
 }

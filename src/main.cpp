@@ -22,10 +22,7 @@ int main() {
     // string msg = connect.recieveMessage();
     while(true)
 {
-    string msg =
         connect.recieveMessage();
-        connect.sendMessage("test");
-    cout << msg << endl;
 }
     // cout<<msg<<endl;
 

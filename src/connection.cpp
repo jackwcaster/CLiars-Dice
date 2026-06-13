@@ -9,11 +9,11 @@ Connection::Connection(SOCKET conSocket){
     this -> conSocket = conSocket;
 }
 void Connection::sendMessage(string msg){
-        int result = send(conSocket, msg.c_str(), msg.size(), 0); //must convert to C string=
-        cout << "send result = " << result << endl;
-        if(result == SOCKET_ERROR){
-            cout << "send failed: "<< WSAGetLastError() << endl;
-        }
+        /*int result = */send(conSocket, msg.c_str(), msg.size(), 0); //must convert to C string=
+        // cout << "send result = " << result << endl;
+        // if(result == SOCKET_ERROR){
+        //     cout << "send failed: "<< WSAGetLastError() << endl;
+        // }
 }
 string Connection::recieveMessage(){
     char buff [1024];
