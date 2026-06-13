@@ -15,17 +15,18 @@ int main() {
     cout<<"Starting server"<<endl;
     server.start(); //Need a start function
     cout<<"Server started, waiting for client"<<endl;
-    SOCKET client = server.acceptClient(); //make a socket for one client
-    cout<<"Client connected"<<endl;
-    Connection connect(client); // create a connection with the client socket?
-    connect.sendMessage("test"); //test msg
-    // string msg = connect.recieveMessage();
-    while(true)
-{
-        connect.recieveMessage();
-}
+//     SOCKET client = server.acceptClient(); //make a socket for one client
+//     cout<<"Client connected"<<endl;
+//     Connection connect(client); // create a connection with the client socket?
+//     connect.sendMessage("test"); //test msg
+//     // string msg = connect.recieveMessage();
+//     while(true)
+// {
+//         connect.recieveMessage();
+// }
     // cout<<msg<<endl;
 
     WSACleanup();
 }
 // g++ interface.cpp server.cpp connection.cpp -o main -lws2_32
+// g++ .\main.cpp .\connection.cpp .\player.cpp .\game.cpp .\server.cpp -lws2_32  

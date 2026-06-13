@@ -51,10 +51,7 @@ int main()
     // std::string msg = "Hello server!";
     // send(sock, msg.c_str(), msg.size(), 0);
 
-    std::thread receiver(
-    receiveLoop,
-    sock
-);
+    std::thread receiver(receiveLoop,sock);
 
     while(true){
     string msg;
