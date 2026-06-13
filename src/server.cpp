@@ -3,6 +3,7 @@
 #include "server.h"
 #include <winsock2.h>
 #include <ws2tcpip.h>
+#include <thread>
 
 using namespace std;
 
@@ -24,8 +25,49 @@ void Server::start(){
     bind(serverSocket, (struct sockaddr*)&serverAddress, sizeof(serverAddress));
 
     listen(serverSocket, SOMAXCONN);
+
+    acceptClinets();
 }
 
 SOCKET Server::acceptClient(){
     return accept(serverSocket, nullptr, nullptr);
+}
+
+void Server::acceptClinets(){
+    while(true){
+        SOCKET clientSocket =accept(serverSocket,nullptr, nullptr );
+
+        Connection* client = new Connection(clientSocket);
+
+        clients.push_back(client);
+
+        cout<< "Client joined\n";
+
+        std::thread t(&Server::handleClient, this, client );
+
+        t.detach();
+    }
+}
+
+void Server::handleClient(Connection* client){
+    while(true)
+    {
+        string msg = client->recieveMessage();
+
+        if(msg.empty())
+        {
+            break;
+        }
+
+        cout <<"Client: "<< msg << endl;
+
+        broadcast("Server Recieved: " + msg);
+    }
+}
+
+void Server::broadcast(string msg){
+    for(Connection* client : clients)
+    {
+        client->sendMessage(msg);
+    }
 }

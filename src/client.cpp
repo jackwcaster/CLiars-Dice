@@ -2,10 +2,37 @@
 #include <ws2tcpip.h>
 #include <iostream>
 #include <string>
+#include <thread>
 
 using namespace std;
 
 #pragma comment(lib, "Ws2_32.lib")
+
+void receiveLoop(SOCKET sock)
+{
+    char buffer[1024];
+
+    while(true)
+    {
+        int bytes =
+            recv(
+                sock,
+                buffer,
+                sizeof(buffer),
+                0
+            );
+
+        if(bytes <= 0)
+        {
+            break;
+        }
+
+        cout
+            << "\nServer: "
+            << string(buffer, bytes)
+            << endl;
+    }
+}
 
 int main()
 {
@@ -23,6 +50,11 @@ int main()
 
     // std::string msg = "Hello server!";
     // send(sock, msg.c_str(), msg.size(), 0);
+
+    std::thread receiver(
+    receiveLoop,
+    sock
+);
 
     while(true){
     string msg;
