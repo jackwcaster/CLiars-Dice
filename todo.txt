@@ -1,6 +1,7 @@
 1. Add constructors for player and game class | done
 1.5 Get server to clinet messages working -> need to implement threads fopr | done
 2. Add main loop to get multiple players connected at once | done
+2.25 ->  move clinet logic into a class first
 2.5 -> add a start game feature first and variables for all dice couts and stuff
 3. Add functions for input parsing
 4. Funtioning game demo
